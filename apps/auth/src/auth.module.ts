@@ -5,6 +5,7 @@ import { JwtModule } from '@nestjs/jwt';
 import * as Joi from 'joi';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { UsersModule } from './users/users.module';
 
@@ -35,6 +36,6 @@ import { UsersModule } from './users/users.module';
   ],
   controllers: [AuthController],
   // providers를 모듈에 등록하면 해당 모듈에서 사용할 수 있는 서비스 또는 클래스를 생성 및 관리할 수 있습니다.
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
 })
 export class AuthModule {}

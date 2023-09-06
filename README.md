@@ -121,3 +121,14 @@ write it later.
    - create auth guard
    - create custom decoration in current-user
    - apply strategy to auth module
+
+4. Create JWT Strategy
+
+   ```sh
+   npm i cookie-parser
+   npm i -D @types/cookie-parser
+   ```
+
+   - create jwt strategy
+   - create jwt guard
+   - apply cookieParser to main.ts
