@@ -1,5 +1,5 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { UserDocument } from './users/models/user.schema';
+import { UserDocument } from '../models/user.schema';
 
 /*
 getCurrentUserByContext 함수는 요청 컨텍스트에서 인증된 사용자를 검색합니다.

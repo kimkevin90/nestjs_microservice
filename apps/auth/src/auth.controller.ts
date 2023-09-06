@@ -1,9 +1,11 @@
 import { Controller, Post, Res, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { CurrentUser, UserDocument } from '@app/common';
+
 import { AuthService } from './auth.service';
-import { CurrentUser } from './current-user.decorator';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { LocalAuthGuard } from './guards/local-auth-guard';
-import { UserDocument } from './users/models/user.schema';
 
 /*
 [passthrough: true 옵션]
@@ -36,5 +38,12 @@ export class AuthController {
   ) {
     await this.authService.login(user, response);
     response.send(user);
+  }
+
+  // JwtAuthGuard로 jwtFromRequest -> validate 이어지면서 return this.usersService.getUser 진행하여 user 존재
+  @UseGuards(JwtAuthGuard)
+  @MessagePattern('authenticate')
+  async authenticate(@Payload() data: any) {
+    return data.user;
   }
 }

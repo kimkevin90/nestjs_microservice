@@ -132,3 +132,16 @@ write it later.
    - create jwt strategy
    - create jwt guard
    - apply cookieParser to main.ts
+
+5. Create Common Auth Guard And apply microservice authenticate
+
+   ```sh
+   npm i @nestjs/microservices
+   ```
+
+   - apply microservice connection to auth module
+   - create authenticate request in auth controller
+   - connect reservation module with auth Service
+   - create common jwt auth guard
+   - apply jwtAuthGuard to reservation controller
+   - move current-user decorator, user model to common lib
