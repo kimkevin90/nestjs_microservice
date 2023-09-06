@@ -98,3 +98,15 @@ write it later.
    nest g controller users
    nest g service users
    ```
+
+2. Setup Passport Strategy
+
+   ```sh
+   npm i @nestjs/passport passport passport-local
+   npm i -D @types/passport-local
+   npm i @nestjs/jwt passport-jwt
+   npm i -D @types/passport-jwt
+   ```
+   - configure environment variable in auth module
+
+   

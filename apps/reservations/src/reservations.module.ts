@@ -7,6 +7,8 @@ import {
   ReservationDocument,
   ReservationSchema,
 } from './models/reservation.schema';
+import { ConfigModule } from '@nestjs/config';
+import * as Joi from 'joi';
 
 /*
 MongooseModule.forFeature()는 @nestjs/mongoose 모듈을 사용하여 Mongoose 스키마를 등록하는 메서드입니다. 
@@ -22,6 +24,13 @@ schema: 등록할 Mongoose 스키마 (예: ReservationSchema)
       { name: ReservationDocument.name, schema: ReservationSchema },
     ]),
     LoggerModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validationSchema: Joi.object({
+        MONGODB_URI: Joi.string().required(),
+        HTTP_PORT: Joi.number().required(),
+      }),
+    }),
   ],
   controllers: [ReservationsController],
   providers: [ReservationsService, ReservationsRepository],
