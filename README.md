@@ -107,6 +107,17 @@ write it later.
    npm i @nestjs/jwt passport-jwt
    npm i -D @types/passport-jwt
    ```
+
    - configure environment variable in auth module
 
-   
+3. Create Passport Strategy
+
+   ```sh
+   npm i bcryptjs express
+   npm i -D @types/bcryptjs
+   ```
+
+   - create local strategy
+   - create auth guard
+   - create custom decoration in current-user
+   - apply strategy to auth module
