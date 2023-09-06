@@ -45,7 +45,7 @@ write it later.
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 - common/database 모듈 생성
 
-### Create Reservation Mono Repo
+### Create Reservation Repo
 
 1. Create Mono Repo:
 
@@ -86,4 +86,15 @@ write it later.
    ```sh
    docker build ../../ -f Dockerfile -t microservice_reservations
    docker-compose up
+   ```
+
+### Create Auth Repo
+
+1. Create Mono Repo:
+
+   ```sh
+   nest g app auth
+   nest g module users
+   nest g controller users
+   nest g service users
    ```
