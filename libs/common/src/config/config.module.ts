@@ -1,3 +1,5 @@
+//depriciated
+// 각 모듈에 직접 config 설정한다 -> 각 모듈 별 필요한 config 설정이 다르므로
 import { Module } from '@nestjs/common';
 import {
   ConfigModule as NestConfigModule,

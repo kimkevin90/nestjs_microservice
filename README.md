@@ -45,7 +45,7 @@ write it later.
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 - common/database 모듈 생성
 
-### Create Reservation Mono Repo
+### Create Reservation Repo
 
 1. Create Mono Repo:
 
@@ -87,3 +87,61 @@ write it later.
    docker build ../../ -f Dockerfile -t microservice_reservations
    docker-compose up
    ```
+
+### Create Auth Repo
+
+1. Create Mono Repo:
+
+   ```sh
+   nest g app auth
+   nest g module users
+   nest g controller users
+   nest g service users
+   ```
+
+2. Setup Passport Strategy
+
+   ```sh
+   npm i @nestjs/passport passport passport-local
+   npm i -D @types/passport-local
+   npm i @nestjs/jwt passport-jwt
+   npm i -D @types/passport-jwt
+   ```
+
+   - configure environment variable in auth module
+
+3. Create Passport Strategy
+
+   ```sh
+   npm i bcryptjs express
+   npm i -D @types/bcryptjs
+   ```
+
+   - create local strategy
+   - create auth guard
+   - create custom decoration in current-user
+   - apply strategy to auth module
+
+4. Create JWT Strategy
+
+   ```sh
+   npm i cookie-parser
+   npm i -D @types/cookie-parser
+   ```
+
+   - create jwt strategy
+   - create jwt guard
+   - apply cookieParser to main.ts
+
+5. Create Common Auth Guard And apply microservice authenticate
+
+   ```sh
+   npm i @nestjs/microservices
+   ```
+
+   - apply microservice connection to auth module
+   - create authenticate request in auth controller
+   - connect reservation module with auth Service
+   - create common jwt auth guard
+   - apply jwtAuthGuard to reservation controller
+   - move current-user decorator, user model to common lib
