@@ -157,3 +157,8 @@ write it later.
 
    - make createCharge Controller, Service
    - configure stripe settings
+
+2. Inject Payment Service to Reservation Service:
+
+   - apply Payment Service to Reservation Module
+   - configure stripe settings
