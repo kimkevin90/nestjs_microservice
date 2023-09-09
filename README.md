@@ -160,5 +160,6 @@ write it later.
 
 2. Inject Payment Service to Reservation Service:
 
-   - apply Payment Service to Reservation Module
+   - apply Payment service to reservation module
    - configure stripe settings
+   - modify Reservation create service
