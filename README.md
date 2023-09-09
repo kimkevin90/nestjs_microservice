@@ -145,3 +145,21 @@ write it later.
    - create common jwt auth guard
    - apply jwtAuthGuard to reservation controller
    - move current-user decorator, user model to common lib
+
+### Create Payment Repo
+
+1. Create Payment Repo:
+
+   ```sh
+   nest g app payments
+   npm i stripe
+   ```
+
+   - make createCharge Controller, Service
+   - configure stripe settings
+
+2. Inject Payment Service to Reservation Service:
+
+   - apply Payment service to reservation module
+   - configure stripe settings
+   - modify Reservation create service
