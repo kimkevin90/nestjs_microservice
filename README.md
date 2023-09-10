@@ -174,3 +174,13 @@ write it later.
 
    - setup notification configuration
    - apply eventPattern to notify_email in controller
+
+2. Configuer Nodemailer Settings
+
+   ```sh
+   npm i nodemailer
+   npm i -D @types/nodemailer
+   ```
+
+   - apply nodemailer configuration in module
+   - apply nodemailer service  to notification service
