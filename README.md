@@ -163,3 +163,14 @@ write it later.
    - apply Payment service to reservation module
    - configure stripe settings
    - modify Reservation create service
+
+### Create Notification Repo
+
+1. Create Notification Repo:
+
+   ```sh
+   nest g app notifications
+   ```
+
+   - setup notification configuration
+   - apply eventPattern to notify_email in controller

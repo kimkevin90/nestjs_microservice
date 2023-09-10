@@ -29,9 +29,8 @@ export class ReservationsController {
   @Get()
   @UseGuards(JwtAuthGuard)
   findAll() {
-    console.log('실행 컨틀롤러 get1');
     const result = this.reservationsService.findAll();
-    console.log('완료 컨틀롤러 get');
+
     return result;
   }
 
