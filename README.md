@@ -184,3 +184,10 @@ write it later.
 
    - apply nodemailer configuration in module
    - apply nodemailer service  to notification service
+
+
+AWS
+- ecr push 명령어 진행
+- (reservation dir)docker build ../../ -f Dockerfile -t seobi_microservice_reservations
+
+seobi_microservice_reservations

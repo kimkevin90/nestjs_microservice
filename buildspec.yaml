@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 084898106549.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker images...
+
+      - docker build -t seobi_microservice_reservations -f ./apps/reservations/Dockerfile .
+      - docker tag seobi_microservice_reservations:latest 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_reservations:latest
+
+      - docker build -t seobi_microservice_auth -f ./apps/auth/Dockerfile .
+      - docker tag seobi_microservice_auth:latest 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_auth:latest
+
+      - docker build -t seobi_microservice_payments -f ./apps/payments/Dockerfile .
+      - docker tag seobi_microservice_payments:latest 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_payments:latest
+
+      - docker build -t seobi_microservice_notifications -f ./apps/notifications/Dockerfile .
+      - docker tag seobi_microservice_notifications:latest 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_notifications:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - ddocker push 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_reservations:latest
+      - docker push 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_auth:latest
+      - docker push 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_payments:latest
+      - docker push 225047281420.dkr.ecr.ap-northeast-2.amazonaws.com/seobi_microservice_notifications:latest
